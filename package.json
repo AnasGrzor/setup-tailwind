@@ -1,0 +1,33 @@
+{
+  "name": "setup-tailwind-vanilla",
+  "version": "1.0.0",
+  "description": "Automated setup for Tailwind CSS with Vite",
+  "main": "setup-tailwind.js",
+  "scripts": {
+    "setup-tailwind": "node setup-tailwind.js"
+  },
+  "keywords": [
+    "tailwind",
+    "css",
+    "vite",
+    "setup",
+    "automation"
+  ],
+  "author": "AnasGrzor",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/AnasGrzor/setup-tailwind"
+  },
+  "bugs": {
+    "url": "https://github.com/yourusername/setup-tailwind/issues"
+  },
+  "homepage": "https://github.com/AnasGrzor/setup-tailwind",
+  "dependencies": {
+    "dependency-name": "^1.0.0"
+  },
+  "files": [
+    "setup-tailwind.js",
+    "README.md"
+  ]
+}
