@@ -1,5 +1,5 @@
 {
-  "name": "setup-tailwind-vanilla",
+  "name": "setup-tailwind",
   "version": "1.0.0",
   "description": "Automated setup for Tailwind CSS with Vite",
   "main": "setup-tailwind.js",
@@ -23,9 +23,6 @@
     "url": "https://github.com/yourusername/setup-tailwind/issues"
   },
   "homepage": "https://github.com/AnasGrzor/setup-tailwind",
-  "dependencies": {
-    "dependency-name": "^1.0.0"
-  },
   "files": [
     "setup-tailwind.js",
     "README.md"
