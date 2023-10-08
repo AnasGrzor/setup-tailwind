@@ -3,7 +3,7 @@
   "version": "1.2.1",
   "description": "Automated setup for Tailwind CSS with Vite",
   "main": "setup-tailwind.js",
-  "bin": {
+  "scripts": {
     "setup-tailwind": "./setup-tailwind.js"
   },
   "keywords": [

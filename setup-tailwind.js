@@ -1,10 +1,13 @@
-// setup-tailwind.js
-
 const { execSync, writeFileSync } = require("child_process");
 const fs = require("fs");
+const path = require("path");
+const readline = require("readline");
 
-// Get the project name from the command-line arguments
-const projectName = process.argv[2] || "my-project";
+// Create a readline interface to get user input
+const rl = readline.createInterface({
+  input: process.stdin,
+  output: process.stdout,
+});
 
 // Run setup commands
 execSync("npm install -D tailwindcss postcss autoprefixer vite", {
@@ -25,28 +28,64 @@ fs.writeFileSync(configPath, updatedConfigContent);
 const cssContent = `@tailwind base;\n@tailwind components;\n@tailwind utilities;`;
 fs.writeFileSync("input.css", cssContent);
 
+// Get the user's project name based on the current working directory
+const projectName = path.basename(process.cwd());
+
 // Check if package.json exists, and if not, create it
-if (!fs.existsSync("package.json")) {
+const packageJsonPath = path.join(process.cwd(), "package.json");
+if (!fs.existsSync(packageJsonPath)) {
   const newPackageJson = {
-    name: projectName, // Use the provided or default project name
+    name: projectName,
     version: "1.0.0",
-    scripts: {
-      start: "vite",
-    },
+    scripts: {},
     devDependencies: {},
   };
-  fs.writeFileSync("package.json", JSON.stringify(newPackageJson, null, 2));
+
+  // Prompt the user for the script name
+  rl.question(
+    "Enter the name for the script in your package.json: ",
+    (scriptName) => {
+      newPackageJson.scripts[scriptName] = "node setup-tailwind.js";
+      fs.writeFileSync(
+        packageJsonPath,
+        JSON.stringify(newPackageJson, null, 2)
+      );
+
+      console.log(
+        `Tailwind CSS setup complete with updated content property and parallel Vite execution. You can now run it with "npm run ${scriptName}".`
+      );
+
+      // Close the readline interface
+      rl.close();
+    }
+  );
 } else {
-  // If package.json exists, ensure it has a "scripts" section with a "start" script
-  const packageJson = JSON.parse(fs.readFileSync("package.json", "utf8"));
-  if (!packageJson.scripts || !packageJson.scripts.start) {
-    packageJson.scripts = {
-      start: "vite",
-    };
-    fs.writeFileSync("package.json", JSON.stringify(packageJson, null, 2));
+  // If package.json exists, ensure it has a "scripts" section with a user-defined script name
+  const packageJson = JSON.parse(fs.readFileSync(packageJsonPath, "utf8"));
+
+  // Prompt the user for the script name if it's not already defined
+  if (!packageJson.scripts || !Object.keys(packageJson.scripts).length) {
+    rl.question(
+      "Enter the name for the script in your package.json: ",
+      (scriptName) => {
+        packageJson.scripts[scriptName] = "node setup-tailwind.js";
+        fs.writeFileSync(packageJsonPath, JSON.stringify(packageJson, null, 2));
+
+        console.log(
+          `Tailwind CSS setup complete with updated content property and parallel Vite execution. You can now run it with "npm run ${scriptName}".`
+        );
+
+        // Close the readline interface
+        rl.close();
+      }
+    );
+  } else {
+    // No need to prompt if a script is already defined
+    console.log(
+      "A script is already defined in your package.json. You can run it as configured."
+    );
+
+    // Close the readline interface
+    rl.close();
   }
 }
-
-console.log(
-  `Tailwind CSS setup for project "${projectName}" complete with updated content property and parallel Vite execution!`
-);
