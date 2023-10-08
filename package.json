@@ -1,6 +1,6 @@
 {
   "name": "setup-tailwind",
-  "version": "1.4.7",
+  "version": "1.4.8",
   "description": "Automated setup for Tailwind CSS with Vite",
   "main": "setup-tailwind.js",
   "scripts": {
