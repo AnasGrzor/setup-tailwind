@@ -7,14 +7,14 @@ This npm package automates the setup of a [Tailwind CSS](https://tailwindcss.com
 To use this package, you can install it globally using npm:
 
 ```bash
-npm install -g setup-tailwind-vanilla
+npm install -g setup-tailwind
 ```
 
 Usage
 After installing the package, you can run the setup command in your project directory:
 
 ```bash
-npm setup-tailwind
+npm run setup-tailwind
 ```
 
 Features
