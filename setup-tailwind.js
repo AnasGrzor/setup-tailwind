@@ -37,7 +37,9 @@ if (!fs.existsSync(packageJsonPath)) {
   const newPackageJson = {
     name: projectName,
     version: "1.0.0",
-    scripts: {},
+    scripts: {
+      start: "vite"
+    },
     devDependencies: {},
   };
 

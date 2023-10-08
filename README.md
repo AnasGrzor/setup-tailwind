@@ -13,7 +13,7 @@ npm install -g setup-tailwind
 Usage
 After installing the package,
 
-Add this to your package.json file and then run the setup command
+Add this to the scripts tag of your package.json file and then run the setup command
 
 ``` bash
 "setup-tailwind": "node node_modules/setup-tailwind/setup-tailwind.js"
