@@ -26,6 +26,7 @@
   "homepage": "https://github.com/AnasGrzor/setup-tailwind",
   "files": [
     "setup-tailwind.js",
-    "README.md"
+    "README.md",
+    "postinstall.js"
   ]
 }
