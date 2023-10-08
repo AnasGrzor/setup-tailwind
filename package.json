@@ -4,8 +4,7 @@
   "description": "Automated setup for Tailwind CSS with Vite",
   "main": "setup-tailwind.js",
   "scripts": {
-    "setup-tailwind": "node node_modules/setup-tailwind/setup-tailwind.js",
-    "postinstall": "node update.js"
+    "setup-tailwind": "node setup-tailwind.js"
   },
   "keywords": [
     "tailwind",
@@ -26,8 +25,7 @@
   "homepage": "https://github.com/AnasGrzor/setup-tailwind",
   "files": [
     "setup-tailwind.js",
-    "README.md",
-    "update.js"
+    "README.md"
   ],
   "devDependencies": {
     "autoprefixer": "^10.4.16",
