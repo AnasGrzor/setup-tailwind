@@ -13,7 +13,7 @@ if (fs.existsSync(userPackageJsonPath)) {
     // Add or update the "setup-tailwind" script
     userPackageJson.scripts = userPackageJson.scripts || {};
     userPackageJson.scripts["setup-tailwind"] =
-      "node " + path.join(__dirname, "setup-tailwind.js");
+      "node node_modules/setup-tailwind/setup-tailwind.js";
 
     // Write the modified package.json back to the user's directory
     fs.writeFileSync(
