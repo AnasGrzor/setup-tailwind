@@ -4,7 +4,7 @@
   "description": "Automated setup for Tailwind CSS with Vite",
   "main": "setup-tailwind.js",
   "bin": {
-    "setup-tailwind": "setup-tailwind.js"
+    "setup-tailwind": "./setup-tailwind.js"
   },
   "keywords": [
     "tailwind",

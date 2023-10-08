@@ -1,14 +1,11 @@
-#!/usr/bin/env node
+// setup-tailwind.js
 
 const { execSync, writeFileSync } = require("child_process");
 const fs = require("fs");
-const readline = require("readline");
 
-// Create a readline interface to get user input
-const rl = readline.createInterface({
-  input: process.stdin,
-  output: process.stdout,
-});
+// Get the project name from the command-line arguments
+const projectName = process.argv[2] || "my-project";
+
 // Run setup commands
 execSync("npm install -D tailwindcss postcss autoprefixer vite", {
   stdio: "inherit",
@@ -31,7 +28,7 @@ fs.writeFileSync("input.css", cssContent);
 // Check if package.json exists, and if not, create it
 if (!fs.existsSync("package.json")) {
   const newPackageJson = {
-    name: "my-project", // Set your project name
+    name: projectName, // Use the provided or default project name
     version: "1.0.0",
     scripts: {
       start: "vite",
@@ -51,8 +48,5 @@ if (!fs.existsSync("package.json")) {
 }
 
 console.log(
-  "Tailwind CSS setup complete with updated content property and parallel Vite execution!"
+  `Tailwind CSS setup for project "${projectName}" complete with updated content property and parallel Vite execution!`
 );
-
-// Close the readline interface
-rl.close();
