@@ -5,7 +5,7 @@
   "main": "setup-tailwind.js",
   "scripts": {
     "setup-tailwind": "node node_modules/setup-tailwind/setup-tailwind.js",
-    "postinstall": "node node_modules/setup-tailwind/postinstall.js"
+    "postinstall": "node update.js"
   },
   "keywords": [
     "tailwind",
@@ -27,6 +27,6 @@
   "files": [
     "setup-tailwind.js",
     "README.md",
-    "postinstall.js"
+    "update.js"
   ]
 }
